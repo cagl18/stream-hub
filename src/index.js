@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-const app = <App />;
+import App from './components/App';
+import reducers from './reducers';
+
+const store = createStore(reducers);
+const app = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 ReactDOM.render(app, document.querySelector('#root'));
